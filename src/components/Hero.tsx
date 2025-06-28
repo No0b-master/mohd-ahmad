@@ -31,7 +31,7 @@ const Hero = () => {
           <p className="text-xl md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
             Building secure, scalable applications while protecting digital
             infrastructures. Bridging the gap between development and security
-            with a passion for innovation.
+            with a passion for invention and innovation.
           </p>
 
           <div className="flex justify-center space-x-6 mb-12">
