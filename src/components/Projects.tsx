@@ -6,7 +6,7 @@ const Projects = () => {
   const projects = [
     {
       title: "SBF India",
-      description: "The Society for Bright Future mobile app lets anyone register as a disaster‑relief volunteer, submit their details, download official ID cards, and stay connected. It provides seamless management of volunteers—enabling SBF to assign tasks, track participation, and coordinate emergency response efficiently",
+      description: "The Society for Bright Future mobile app lets anyone register as a disaster‑relief volunteer, submit their details, download official ID cards, and stay connected. It provides seamless management of volunteers enabling SBF to assign tasks, track participation, and coordinate emergency response efficiently",
       tech: ["Flutter", "Node.js", "MySQL", "Firebase", "AWS"],
       category: "development",
       image: "/sbf_logo.png",
