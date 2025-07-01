@@ -13,6 +13,15 @@ const Projects = () => {
       demo: "https://play.google.com/store/apps/details?id=com.mobile.sbf&hl=en_IN",
       github: "#"
     },
+       {
+      title: "Cyber Probe",
+      description: "Cyber Probe is a VAPT Security Scanner which is a fullstack vulnerability assessment and penetration testing tool designed to analyze and report critical security issues in web applications. Built using React (frontend) and FastAPI (backend), it performs real-time scanning of target URLs and delivers structured results based on widely recognized OWASP and cybersecurity standards.",
+      tech: ["React", "FastAPI", "Python","VAPT",],
+      category: "security",
+      image: "/vapt.jpg",
+      demo: "https://cyberprobe.welkdock.com",
+      github: "https://github.com/No0b-master/CyberProbe"
+    },
     {
       title: "Tellme Live",
       description: "TellMeLive is a social event app that helps you connect with people through shared interests. Easily create or join public and private events—from workouts to meetups. Enjoy secure access with QR-code tickets and real-time updates. Perfect for friends, families, and communities to build lasting memories .",
@@ -48,16 +57,8 @@ const Projects = () => {
       image: "/trip_tracker.png",
       demo: "https://play.google.com/store/apps/details?id=com.escortskubota.ekl_trip_tracker&hl=en_IN&pli=1",
       github: "#"
-    },
-    {
-      title: "Cyber Probe",
-      description: "Cyber Probe is a VAPT Security Scanner which is a fullstack vulnerability assessment and penetration testing tool designed to analyze and report critical security issues in web applications. Built using React (frontend) and FastAPI (backend), it performs real-time scanning of target URLs and delivers structured results based on widely recognized OWASP and cybersecurity standards.",
-      tech: ["React", "FastAPI", "Python","VAPT",],
-      category: "security",
-      image: "/vapt.jpg",
-      demo: "#",
-      github: "https://github.com/No0b-master/CyberProbe"
     }
+ 
   ];
 
   const getCategoryIcon = (category: string) => {
