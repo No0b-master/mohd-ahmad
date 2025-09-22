@@ -1,6 +1,6 @@
 
-import React from 'react';
 import { Code, Shield, Github } from 'lucide-react';
+import { toast } from 'sonner';
 
 const Projects = () => {
   const projects = [
@@ -20,7 +20,7 @@ const Projects = () => {
       category: "security",
       image: "/vapt.jpg",
       demo: "https://cyberprobe.welkdock.com",
-      github: "https://github.com/No0b-master/CyberProbe"
+      github: "#"
     },
     {
       title: "Tellme Live",
@@ -154,12 +154,21 @@ const Projects = () => {
                   >
                     Live Demo
                   </a>
-                  <a 
-                    href={project.github}
+                  <p onClick={()=>{
+                    if(project.github=="#"){
+                      toast("Access Denied", {
+                        description : 'The Following repository is private'
+                      })
+                    }
+                    else{
+                      window.open(project.github, "_blank")
+                    }
+                  }}
+               
                     className="flex items-center justify-center p-2 bg-slate-700/50 rounded-lg border border-slate-600/50 hover:border-gray-500 hover:bg-slate-700 transition-all duration-300"
                   >
                     <Github className="h-4 w-4 text-gray-400 hover:text-white transition-colors duration-300" />
-                  </a>
+                  </p>
                 </div>
               </div>
             </div>

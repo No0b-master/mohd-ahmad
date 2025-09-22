@@ -1,11 +1,13 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Code, Shield, Linkedin, Github, Mail, User } from 'lucide-react';
 
 const Skills = () => {
+  const [visibleSkills, setVisibleSkills] = useState([]);
+  const [isVisible, setIsVisible] = useState(false);
+
   const developmentSkills = [
-    'React','Flutter','TypeScript', 'Node.js', 'Python', 'JavaScript', 'C++',
-    'MySQL', 'MongoDB', 'Docker', , 'AWS', 'Git', 'REST APIs', 'Bash'
+    'React', 'Flutter', 'TypeScript', 'Node.js', 'Python', 'JavaScript', 'C++',
+    'MySQL', 'MongoDB', 'Docker', 'AWS', 'Git', 'REST APIs', 'Bash'
   ];
 
   const securitySkills = [
@@ -14,85 +16,272 @@ const Skills = () => {
     'Security Auditing', 'Risk Assessment', 'Firewall Management', 'OWASP Top 10'
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          // Animate skills appearing one by one
+          developmentSkills.concat(securitySkills).forEach((_, index) => {
+            setTimeout(() => {
+              setVisibleSkills(prev => [...prev, index]);
+            }, index * 100);
+          });
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const element = document.getElementById('skills');
+    if (element) observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="skills" className="py-20 bg-slate-800/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-1/4 w-72 h-72 bg-cyan-500 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-500 rounded-full blur-3xl animate-pulse delay-500"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header with Photo */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Technical Expertise
-            </span>
-          </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-  I have a comprehensive skill set spanning software development and cybersecurity, which enables me to build secure applications from the ground up.
-          </p>
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-12 mb-12">
+            {/* Photo Section */}
+            <div className="relative group">
+              {/* Animated Holographic Background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-3xl blur-2xl opacity-30 group-hover:opacity-60 transition-all duration-500 animate-pulse scale-110"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-transparent to-blue-400/20 rounded-3xl animate-spin-slow"></div>
+              
+              {/* Main Photo Container */}
+              <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/90 to-slate-700/90 backdrop-blur-xl p-1 rounded-3xl border border-cyan-500/50 shadow-2xl shadow-cyan-500/20 transform group-hover:scale-105 transition-all duration-500">
+                <div className="w-72 h-72 rounded-3xl overflow-hidden relative bg-gradient-to-br from-slate-800 to-slate-700">
+                  {/* Working photo - replace src with your actual photo */}
+                  <img 
+                    src="/ahmad.jpg" 
+                    alt="Mohammad Ahmad working on laptop - Software Developer & Cybersecurity Engineer"
+                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 filter group-hover:brightness-110"
+                  />
+                  
+                  {/* Tech overlay effect */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-cyan-500/10 opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
+                  
+                  {/* Matrix-style code overlay */}
+                  <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500">
+                    <div className="absolute top-4 left-4 text-cyan-400 text-xs font-mono animate-pulse">
+                      {'console.log("Building...");'}
+                    </div>
+                    <div className="absolute top-8 left-4 text-green-400 text-xs font-mono animate-pulse delay-1000">
+                      {'npm run secure-deploy'}
+                    </div>
+                    <div className="absolute bottom-8 right-4 text-blue-400 text-xs font-mono animate-pulse delay-500">
+                      {'> Security: Active'}
+                    </div>
+                  </div>
+                  
+                  {/* Glowing border animation */}
+                  <div className="absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-border"></div>
+                </div>
+              </div>
+              
+              {/* Enhanced Floating Elements */}
+              <div className="absolute -top-6 -right-6 p-4 bg-gradient-to-r from-cyan-500/30 to-cyan-400/30 backdrop-blur-md rounded-2xl border border-cyan-400/50 shadow-2xl shadow-cyan-500/25 animate-float">
+                <Code className="h-8 w-8 text-cyan-300" />
+              </div>
+              <div className="absolute -bottom-6 -left-6 p-4 bg-gradient-to-r from-blue-500/30 to-blue-400/30 backdrop-blur-md rounded-2xl border border-blue-400/50 shadow-2xl shadow-blue-500/25 animate-float-reverse">
+                <Shield className="h-8 w-8 text-blue-300" />
+              </div>
+              
+              {/* Additional floating particles */}
+              <div className="absolute top-1/4 -left-8 w-3 h-3 bg-cyan-400 rounded-full animate-ping opacity-75"></div>
+              <div className="absolute bottom-1/3 -right-8 w-2 h-2 bg-blue-400 rounded-full animate-ping delay-1000 opacity-75"></div>
+              <div className="absolute top-3/4 -right-4 w-4 h-4 bg-purple-400 rounded-full animate-pulse delay-500 opacity-60"></div>
+              
+              {/* Scanning line effect */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-scan"></div>
+              </div>
+            </div>
+
+            {/* Text Content */}
+            <div className="text-left lg:max-w-2xl">
+              <h2 className={`text-4xl md:text-6xl font-bold mb-6 transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
+                <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent animate-gradient-x">
+                  Technical Expertise
+                </span>
+              </h2>
+              <p className={`text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
+                With a <span className="text-cyan-400 font-semibold">comprehensive skill set</span> spanning both 
+                software development and cybersecurity, I build <span className="text-blue-400 font-semibold">secure, 
+                scalable applications</span> from the ground up. My dual expertise allows me to anticipate 
+                security challenges during development and create robust digital solutions.
+              </p>
+              
+              {/* Stats */}
+              <div className="flex gap-8 mt-8">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-cyan-400 mb-1">4+</div>
+                  <div className="text-sm text-gray-400">Years Experience</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-blue-400 mb-1">50+</div>
+                  <div className="text-sm text-gray-400">Projects Completed</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-purple-400 mb-1">15+</div>
+                  <div className="text-sm text-gray-400">Technologies</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12 mb-16">
           {/* Development Skills */}
-          <div className="bg-gradient-to-br from-slate-900/80 to-slate-800/80 rounded-2xl p-8 border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300">
-            <div className="flex items-center mb-6">
-              <div className="p-3 bg-cyan-500/10 rounded-full border border-cyan-500/20 mr-4">
+          <div className={`bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-sm rounded-3xl p-8 border border-cyan-500/30 hover:border-cyan-500/50 transition-all duration-500 shadow-2xl hover:shadow-cyan-500/20 transform hover:-translate-y-2 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '0.2s' }}>
+            <div className="flex items-center mb-8">
+              <div className="p-4 bg-gradient-to-r from-cyan-500/20 to-cyan-400/20 rounded-2xl border border-cyan-500/30 mr-4 shadow-lg">
                 <Code className="h-8 w-8 text-cyan-400" />
               </div>
-              <h3 className="text-2xl font-bold text-cyan-400">Software Development</h3>
+              <div>
+                <h3 className="text-2xl font-bold text-cyan-400">Software Development</h3>
+                <p className="text-gray-400 text-sm">Full-stack development expertise</p>
+              </div>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {developmentSkills.map((skill, index) => (
                 <div 
                   key={skill}
-                  className="bg-slate-700/50 rounded-lg p-3 text-center border border-slate-600/50 hover:border-cyan-400/50 hover:bg-cyan-500/5 transition-all duration-300 animate-fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className={`bg-gradient-to-r from-slate-700/50 to-slate-600/50 backdrop-blur-sm rounded-xl p-4 text-center border border-slate-600/50 hover:border-cyan-400/50 hover:bg-gradient-to-r hover:from-cyan-500/10 hover:to-cyan-400/10 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-cyan-500/20 ${visibleSkills.includes(index) ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                  style={{ transitionDelay: `${index * 0.1}s` }}
                 >
-                  <span className="text-sm font-medium text-gray-300">{skill}</span>
+                  <span className="text-sm font-medium text-gray-200">{skill}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Security Skills */}
-          <div className="bg-gradient-to-br from-slate-900/80 to-slate-800/80 rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300">
-            <div className="flex items-center mb-6">
-              <div className="p-3 bg-blue-500/10 rounded-full border border-blue-500/20 mr-4">
+          <div className={`bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-sm rounded-3xl p-8 border border-blue-500/30 hover:border-blue-500/50 transition-all duration-500 shadow-2xl hover:shadow-blue-500/20 transform hover:-translate-y-2 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '0.4s' }}>
+            <div className="flex items-center mb-8">
+              <div className="p-4 bg-gradient-to-r from-blue-500/20 to-blue-400/20 rounded-2xl border border-blue-500/30 mr-4 shadow-lg">
                 <Shield className="h-8 w-8 text-blue-400" />
               </div>
-              <h3 className="text-2xl font-bold text-blue-400">Cybersecurity</h3>
+              <div>
+                <h3 className="text-2xl font-bold text-blue-400">Cybersecurity</h3>
+                <p className="text-gray-400 text-sm">Advanced security & penetration testing</p>
+              </div>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {securitySkills.map((skill, index) => (
                 <div 
                   key={skill}
-                  className="bg-slate-700/50 rounded-lg p-3 text-center border border-slate-600/50 hover:border-blue-400/50 hover:bg-blue-500/5 transition-all duration-300 animate-fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className={`bg-gradient-to-r from-slate-700/50 to-slate-600/50 backdrop-blur-sm rounded-xl p-4 text-center border border-slate-600/50 hover:border-blue-400/50 hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-blue-400/10 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-blue-500/20 ${visibleSkills.includes(developmentSkills.length + index) ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                  style={{ transitionDelay: `${(developmentSkills.length + index) * 0.1}s` }}
                 >
-                  <span className="text-sm font-medium text-gray-300">{skill}</span>
+                  <span className="text-sm font-medium text-gray-200">{skill}</span>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Certifications */}
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold text-gray-300 mb-8">Certifications & Education</h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-slate-800/50 rounded-xl p-6 border border-gray-700/50">
-              <h4 className="text-lg font-semibold text-cyan-400 mb-2">CISSP</h4>
-              <p className="text-gray-400">Certified Information Systems Security Professional</p>
-            </div>
-            <div className="bg-slate-800/50 rounded-xl p-6 border border-gray-700/50">
-              <h4 className="text-lg font-semibold text-blue-400 mb-2">CEH</h4>
-              <p className="text-gray-400">Certified Ethical Hacker</p>
-            </div>
-            <div className="bg-slate-800/50 rounded-xl p-6 border border-gray-700/50">
-              <h4 className="text-lg font-semibold text-purple-400 mb-2">B.Tech Electronics and Communication</h4>
-              <p className="text-gray-400">Focus on Netowrking and Communications</p>
-            </div>
-          </div>
-        </div>
+
       </div>
+
+      <style>{`
+        @keyframes gradient-x {
+          0%, 100% {
+            background-size: 200% 200%;
+            background-position: left center;
+          }
+          50% {
+            background-size: 200% 200%;
+            background-position: right center;
+          }
+        }
+        
+        @keyframes spin-slow {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-20px) rotate(5deg);
+          }
+        }
+        
+        @keyframes float-reverse {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-15px) rotate(-5deg);
+          }
+        }
+        
+        @keyframes scan {
+          0% {
+            top: 0%;
+            opacity: 0;
+          }
+          50% {
+            opacity: 1;
+          }
+          100% {
+            top: 100%;
+            opacity: 0;
+          }
+        }
+        
+        @keyframes gradient-border {
+          0%, 100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+        }
+        
+        .animate-gradient-x {
+          animation: gradient-x 3s ease infinite;
+        }
+        
+        .animate-spin-slow {
+          animation: spin-slow 20s linear infinite;
+        }
+        
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+        
+        .animate-float-reverse {
+          animation: float-reverse 6s ease-in-out infinite;
+          animation-delay: 3s;
+        }
+        
+        .animate-scan {
+          animation: scan 3s linear infinite;
+        }
+        
+        .animate-gradient-border {
+          animation: gradient-border 2s ease infinite;
+        }
+      `}</style>
     </section>
   );
 };
