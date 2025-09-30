@@ -128,11 +128,11 @@ const Skills = () => {
                   <div className="text-sm text-gray-400">Years Experience</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-400 mb-1">50+</div>
+                  <div className="text-3xl font-bold text-blue-400 mb-1">15+</div>
                   <div className="text-sm text-gray-400">Projects Completed</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-purple-400 mb-1">15+</div>
+                  <div className="text-3xl font-bold text-purple-400 mb-1">10+</div>
                   <div className="text-sm text-gray-400">Technologies</div>
                 </div>
               </div>

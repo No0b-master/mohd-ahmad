@@ -13,6 +13,7 @@ const Projects = () => {
       demo: "https://play.google.com/store/apps/details?id=com.mobile.sbf&hl=en_IN",
       github: "#"
     },
+
        {
       title: "Cyber Probe",
       description: "Cyber Probe is a VAPT Security Scanner which is a fullstack vulnerability assessment and penetration testing tool designed to analyze and report critical security issues in web applications. Built using React (frontend) and FastAPI (backend), it performs real-time scanning of target URLs and delivers structured results based on widely recognized OWASP and cybersecurity standards.",
@@ -21,6 +22,15 @@ const Projects = () => {
       image: "/vapt.jpg",
       demo: "https://cyberprobe.welkdock.com",
       github: "#"
+    },
+    {
+      title: "Ncryptor",
+      description: "It’s a novel password hashing algorithm that combines quantum-inspired wave transformations, fractal mathematics, and temporal entropy. The package allows you to hash and compare hashes easily.",
+      tech: ["Cyber Security","Hashing" ,"SHA-3","JavaScript", "GitHub"],
+      category: "security",
+      image: "/ncryptor.webp",
+      demo: "https://www.npmjs.com/package/ncryptor",
+      github: "https://github.com/No0b-master/Ncryptor"
     },
     {
       title: "Tellme Live",
@@ -150,6 +160,7 @@ const Projects = () => {
                 <div className="flex space-x-4">
                   <a 
                     href={project.demo}
+                    target='blank'
                     className="flex-1 text-center py-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-400 rounded-lg border border-cyan-500/30 hover:from-cyan-500/30 hover:to-blue-500/30 transition-all duration-300 text-sm font-medium"
                   >
                     Live Demo
