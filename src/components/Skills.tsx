@@ -121,6 +121,7 @@ const Skills = () => {
                 security challenges during development and create robust digital solutions.
               </p>
               
+              
               {/* Stats */}
               <div className="flex gap-8 mt-8">
                 <div className="text-center">

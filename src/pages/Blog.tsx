@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import Navigation from '../components/Navigation';
+import ExternalNavigation from '@/components/ExternalNavigation';
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -9,64 +10,15 @@ const Blog = () => {
 
   const blogPosts = [
     {
-      title: "Implementing Zero Trust Architecture in Modern Applications",
-      excerpt: "A comprehensive guide to building applications with Zero Trust principles, covering authentication, authorization, and continuous verification.",
-      content: "Zero Trust Architecture represents a fundamental shift in how we approach cybersecurity...",
-      date: "2024-05-15",
+      title: "Top 10 Secuirty Vulnerability in 2025",
+      excerpt: "The internet never sleeps, and unfortunately, neither do hackers. As web apps grow more powerful and complex, so do the ways they can be attacked. Whether you’re running an e-commerce store, a startup dashboard, or a portfolio site, knowing where you’re vulnerable in 2025 is not optional it’s essential.",
+      date: "2025-07-24",
       category: "Cybersecurity",
-      readTime: "8 min read",
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=600&h=400&fit=crop",
-      slug: "implementing-zero-trust-architecture-in-modern-applications"
-    },
-    {
-      title: "Building Secure APIs with Node.js and Express",
-      excerpt: "Best practices for developing secure RESTful APIs, including input validation, rate limiting, and proper error handling.",
-      content: "When building APIs, security should be a primary concern from the very beginning...",
-      date: "2024-05-10",
-      category: "Development",
-      readTime: "6 min read",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop",
-      slug: "building-secure-apis-with-nodejs-and-express"
-    },
-    {
-      title: "DevSecOps: Integrating Security into CI/CD Pipelines",
-      excerpt: "How to seamlessly integrate security testing and compliance checks into your development workflow without slowing down delivery.",
-      content: "DevSecOps bridges the traditional gap between development, security, and operations teams...",
-      date: "2024-05-05",
-      category: "DevSecOps",
-      readTime: "10 min read",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop",
-      slug: "devsecops-integrating-security-into-cicd-pipelines"
-    },
-    {
-      title: "Understanding SQL Injection and Prevention Techniques",
-      excerpt: "Deep dive into SQL injection attacks, how they work, and comprehensive prevention strategies for developers.",
-      content: "SQL injection remains one of the most common and dangerous web application vulnerabilities...",
-      date: "2024-04-28",
-      category: "Cybersecurity",
-      readTime: "7 min read",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop",
-      slug: "understanding-sql-injection-and-prevention-techniques"
-    },
-    {
-      title: "React Security Best Practices for 2024",
-      excerpt: "Essential security considerations for React developers, including XSS prevention, secure authentication, and dependency management.",
-      content: "React applications face unique security challenges that developers must address proactively...",
-      date: "2024-04-20",
-      category: "Development",
-      readTime: "9 min read",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
-      slug: "react-security-best-practices-for-2024"
-    },
-    {
-      title: "Container Security: Docker and Kubernetes Hardening",
-      excerpt: "Comprehensive guide to securing containerized applications, from image scanning to runtime protection.",
-      content: "As containerization becomes ubiquitous, securing containers and orchestration platforms is crucial...",
-      date: "2024-04-15",
-      category: "DevSecOps",
-      readTime: "12 min read",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=600&h=400&fit=crop",
-      slug: "container-security-docker-and-kubernetes-hardening"
+      readTime: "3 min read",
+      slug: "building-secure-apis-with-nodejs-and-express",
+
+      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=250&fit=crop",
+      url :"https://medium.com/@ahmadaug20/top-10-web-security-vulnerabilities-in-2025-b36d9d50e7e2"
     }
   ];
 
@@ -91,7 +43,7 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-      <Navigation />
+      <ExternalNavigation />
       
       <div className="pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -161,7 +113,12 @@ const Blog = () => {
                     {post.excerpt}
                   </p>
                   
-                  <button className="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors duration-300 text-sm font-medium">
+                  <button className="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors duration-300 text-sm font-medium"
+                  onClick={()=>{
+                    window.open(post.url, "_blank")
+
+                  }}
+                  >
                     Read Full Article
                     <svg className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

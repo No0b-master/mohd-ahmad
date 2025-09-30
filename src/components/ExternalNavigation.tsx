@@ -1,15 +1,14 @@
+import React, { useState } from "react";
+import { Menu, X, Code, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
 
-import React, { useState } from 'react';
-import { Menu, X, Code, Shield } from 'lucide-react';
-import { Link } from 'react-router-dom';
-
-const Navigation = () => {
+const ExternalNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
     setIsOpen(false);
   };
@@ -23,49 +22,46 @@ const Navigation = () => {
               <Code className="h-6 w-6 text-cyan-400" />
               <Shield className="h-6 w-6 text-cyan-400" />
             </div>
-            <span 
-             onClick={()=>{
-                
-            window.open("http://mohd-ahmad.vercel.app/")
-            }}
-            className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Mohd Ahmad
-            </span>
+            <Link to={"/"}>
+              <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                Mohd Ahmad
+              </span>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <button 
-                onClick={() => scrollToSection('hero')}
+              <Link
+                to={"/"}
                 className="text-gray-300 hover:text-cyan-400 transition-colors duration-200"
               >
                 Home
-              </button>
-              <button 
-                onClick={() => scrollToSection('skills')}
+              </Link>
+              <Link
+                to={"/"}
                 className="text-gray-300 hover:text-cyan-400 transition-colors duration-200"
               >
                 Skills
-              </button>
-              <button 
-                onClick={() => scrollToSection('projects')}
+              </Link>
+              <Link
+                to={"/"}
                 className="text-gray-300 hover:text-cyan-400 transition-colors duration-200"
               >
                 Projects
-              </button>
-              <button 
-                onClick={() => scrollToSection('blog')}
+              </Link>
+              <Link
+                to={"/"}
                 className="text-gray-300 hover:text-cyan-400 transition-colors duration-200"
               >
                 Recent Blogs
-              </button>
-              <button 
-                onClick={() => scrollToSection('contact')}
+              </Link>
+              <Link
+                to={"/"}
                 className="text-gray-300 hover:text-cyan-400 transition-colors duration-200"
               >
                 Contact
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -75,7 +71,11 @@ const Navigation = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-300 hover:text-cyan-400 transition-colors duration-200"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
@@ -84,32 +84,32 @@ const Navigation = () => {
         {isOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-slate-800/95 backdrop-blur-sm rounded-lg mt-2">
-              <button 
-                onClick={() => scrollToSection('hero')}
+              <button
+                onClick={() => scrollToSection("hero")}
                 className="block w-full text-left px-3 py-2 text-gray-300 hover:text-cyan-400 transition-colors duration-200"
               >
                 Home
               </button>
-              <button 
-                onClick={() => scrollToSection('skills')}
+              <button
+                onClick={() => scrollToSection("skills")}
                 className="block w-full text-left px-3 py-2 text-gray-300 hover:text-cyan-400 transition-colors duration-200"
               >
                 Skills
               </button>
-              <button 
-                onClick={() => scrollToSection('projects')}
+              <button
+                onClick={() => scrollToSection("projects")}
                 className="block w-full text-left px-3 py-2 text-gray-300 hover:text-cyan-400 transition-colors duration-200"
               >
                 Projects
               </button>
-              <Link 
+              <Link
                 to="/blog"
                 className="block px-3 py-2 text-gray-300 hover:text-cyan-400 transition-colors duration-200"
               >
                 Blog
               </Link>
-              <button 
-                onClick={() => scrollToSection('contact')}
+              <button
+                onClick={() => scrollToSection("contact")}
                 className="block w-full text-left px-3 py-2 text-gray-300 hover:text-cyan-400 transition-colors duration-200"
               >
                 Contact
@@ -122,4 +122,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default ExternalNavigation;

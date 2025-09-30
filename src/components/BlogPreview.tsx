@@ -5,28 +5,13 @@ import { Link } from 'react-router-dom';
 const BlogPreview = () => {
   const recentPosts = [
     {
-      title: "Implementing Zero Trust Architecture in Modern Applications",
-      excerpt: "A comprehensive guide to building applications with Zero Trust principles, covering authentication, authorization, and continuous verification.",
-      date: "2024-05-15",
+      title: "Top 10 Secuirty Vulnerability in 2025",
+      excerpt: "The internet never sleeps, and unfortunately, neither do hackers. As web apps grow more powerful and complex, so do the ways they can be attacked. Whether you’re running an e-commerce store, a startup dashboard, or a portfolio site, knowing where you’re vulnerable in 2025 is not optional it’s essential.",
+      date: "2025-07-24",
       category: "Cybersecurity",
-      readTime: "8 min read",
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=250&fit=crop"
-    },
-    {
-      title: "Building Secure APIs with Node.js and Express",
-      excerpt: "Best practices for developing secure RESTful APIs, including input validation, rate limiting, and proper error handling.",
-      date: "2024-05-10",
-      category: "Development",
-      readTime: "6 min read",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop"
-    },
-    {
-      title: "DevSecOps: Integrating Security into CI/CD Pipelines",
-      excerpt: "How to seamlessly integrate security testing and compliance checks into your development workflow without slowing down delivery.",
-      date: "2024-05-05",
-      category: "DevSecOps",
-      readTime: "10 min read",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=250&fit=crop"
+      readTime: "3 min read",
+      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=250&fit=crop",
+      url :"https://medium.com/@ahmadaug20/top-10-web-security-vulnerabilities-in-2025-b36d9d50e7e2"
     }
   ];
 
@@ -44,7 +29,7 @@ const BlogPreview = () => {
   };
 
   return (
-    <section className="py-20 bg-slate-800/30">
+    <section id="blog" className="py-20 bg-slate-800/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -99,15 +84,16 @@ const BlogPreview = () => {
                   {post.excerpt}
                 </p>
                 
-                <Link 
-                  to={`/blog/${post.title.toLowerCase().replace(/\s+/g, '-')}`}
+                <a 
+                  href={post.url}
+                  target='blank'
                   className="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors duration-300 text-sm font-medium"
                 >
                   Read More
                   <svg className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </Link>
+                </a>
               </div>
             </article>
           ))}
