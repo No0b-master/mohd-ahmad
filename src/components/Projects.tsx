@@ -23,6 +23,15 @@ const Projects = () => {
       demo: "https://cyberprobe.welkdock.com",
       github: "#"
     },
+       {
+      title: "Advance Listview",
+      description: "A powerful and flexible paginated ListView widget for Flutter that simplifies API integration with built-in pagination, search functionality, and comprehensive error handling.",
+      tech: ["Flutter", "Pub.dev" , "Dart", "UI"],
+      category: "development",
+      image: "/pub_dev.png",
+      demo: "https://pub.dev/packages/advance_listview",
+      github: "https://github.com/No0b-master/advance_listview"
+    },
     {
       title: "Ncryptor",
       description: "It’s a novel password hashing algorithm that combines quantum-inspired wave transformations, fractal mathematics, and temporal entropy. The package allows you to hash and compare hashes easily.",
