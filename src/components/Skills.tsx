@@ -139,6 +139,83 @@ const Skills = () => {
               </div>
             </div>
           </div>
+
+          {/* Experience Timeline Section */}
+          <div className="mb-16">
+            <h2 className={`text-4xl md:text-5xl font-bold text-center mb-12 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent animate-gradient-x">
+                Professional Journey
+              </span>
+            </h2>
+
+            <div className="max-w-5xl mx-auto relative">
+              {/* Timeline Line */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-cyan-500 via-blue-500 to-purple-500 opacity-30"></div>
+              
+              {/* Timeline Items */}
+              <div className="space-y-12">
+                {/* Experience Item 1 */}
+                <div className={`relative transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`} style={{ transitionDelay: '0.6s' }}>
+                  <div className="flex flex-col md:flex-row items-center gap-8">
+                    <div className="md:w-1/2 md:text-right md:pr-12">
+                      <div className="bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-sm rounded-2xl p-6 border border-cyan-500/30 hover:border-cyan-500/50 transition-all duration-300 shadow-xl hover:shadow-cyan-500/20 transform hover:-translate-y-1">
+                        <h3 className="text-xl font-bold text-cyan-400 mb-2">Senior Software Developer & Security Engineer</h3>
+                        <p className="text-gray-400 mb-3">Taleef Technologies - <i>Dubai, UAE</i></p>
+                        <p className="text-sm text-gray-500 mb-3">2023 - Present</p>
+                        <p className="text-gray-300 text-sm">Led development of secure enterprise applications, implemented security protocols, and conducted penetration testing to ensure robust system security.</p>
+                      </div>
+                    </div>
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-br from-cyan-500 to-cyan-400 rounded-full border-4 border-slate-900 shadow-lg shadow-cyan-500/50 z-10 animate-pulse"></div>
+                    <div className="md:w-1/2 md:pl-12"></div>
+                  </div>
+                </div>
+
+                {/* Experience Item 2 */}
+                <div className={`relative transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`} style={{ transitionDelay: '0.8s' }}>
+                  <div className="flex flex-col md:flex-row items-center gap-8">
+                    <div className="md:w-1/2 md:pr-12"></div>
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-400 rounded-full border-4 border-slate-900 shadow-lg shadow-blue-500/50 z-10 animate-pulse"></div>
+                    <div className="md:w-1/2 md:pl-12">
+                      <div className="bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/30 hover:border-blue-500/50 transition-all duration-300 shadow-xl hover:shadow-blue-500/20 transform hover:-translate-y-1">
+                        <h3 className="text-xl font-bold text-blue-400 mb-2">Full Stack Developer and Devops Engineer</h3>
+                        <p className="text-gray-400 mb-3">Escorts Kubota Limited <i>Faridabad, India</i></p>
+                        <p className="text-sm text-gray-500 mb-3">Apr 2024 - Nov 2025</p>
+                        <p className="text-gray-300 text-sm">Developed responsive web applications using React and Node.js,optimized database performance, Deployed application using Docker and Kubertes and collaborated with cross-functional teams.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Experience Item 3 */}
+                <div className={`relative transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`} style={{ transitionDelay: '1s' }}>
+                  <div className="flex flex-col md:flex-row items-center gap-8">
+                    <div className="md:w-1/2 md:text-right md:pr-12">
+                      <div className="bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30 hover:border-purple-500/50 transition-all duration-300 shadow-xl hover:shadow-purple-500/20 transform hover:-translate-y-1">
+                        <h3 className="text-xl font-bold text-purple-400 mb-2">Junior Mobile App and Web Developer</h3>
+                        <p className="text-gray-400 mb-3">Leanports Software Solution GmBH <i>Berlin, Germany (remote)</i></p>
+                        <p className="text-sm text-gray-500 mb-3">Mar 2021 - Mar 2024</p>
+                        <p className="text-gray-300 text-sm">Assisted in building mobile applications with Flutter & React Native, along with Building API with Node.js and Express.js and testing API via mocha   </p>
+                      </div>
+                    </div>
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-400 rounded-full border-4 border-slate-900 shadow-lg shadow-purple-500/50 z-10 animate-pulse"></div>
+                    <div className="md:w-1/2 md:pl-12"></div>
+                  </div>
+                </div>
+
+                {/* Starting Point */}
+                <div className={`relative transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1.2s' }}>
+                  <div className="flex flex-col items-center">
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-br from-gray-500 to-gray-400 rounded-full border-4 border-slate-900 shadow-lg z-10"></div>
+                    <div className="mt-12 text-center">
+                      <p className="text-gray-400 text-sm">Started Journey in Tech</p>
+                      <p className="text-gray-500 text-xs">2021</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">

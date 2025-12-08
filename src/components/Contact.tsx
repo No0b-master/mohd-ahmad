@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Github, Linkedin, User } from 'lucide-react';
+import { Mail, Github, Linkedin, User, PhoneCall } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -56,6 +56,17 @@ const Contact = () => {
             </div>
 
             <div className="space-y-6">
+<div className="flex items-center space-x-4">
+                <div className="p-3 bg-cyan-500/10 rounded-full border border-cyan-500/20">
+                  <PhoneCall className="h-6 w-6 text-cyan-400" />
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white">Phone</h4>
+                  <p className="text-gray-400">+971 503092584 , +91 9899880626</p>
+          
+                </div>
+              </div>
+
               <div className="flex items-center space-x-4">
                 <div className="p-3 bg-cyan-500/10 rounded-full border border-cyan-500/20">
                   <Mail className="h-6 w-6 text-cyan-400" />
