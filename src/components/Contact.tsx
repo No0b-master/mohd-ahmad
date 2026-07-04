@@ -1,130 +1,123 @@
-
-import React, { useState } from 'react';
-import { Mail, Github, Linkedin, User, PhoneCall } from 'lucide-react';
-import { useToast } from "@/hooks/use-toast";
+import { useState } from 'react';
+import { Github, Linkedin, Mail, PhoneCall, Twitter } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
-    message: ''
+    message: '',
   });
+
   const { toast } = useToast();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "Message sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
+      title: 'Message sent',
+      description: 'Thank you for reaching out. I will get back to you shortly.',
     });
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
   return (
-    <section id="contact" className="py-20 bg-slate-900/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Get In Touch
-            </span>
-          </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Ready to collaborate on your next project? Let's discuss how we can build 
-            something secure and amazing together.
+    <section id="contact" className="py-20 md:py-24">
+      <div className="section-shell">
+        <div className="max-w-4xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-amber-300">Contact</p>
+          <h2 className="section-heading mt-3">Let&apos;s Build Something Valuable for Your Business</h2>
+          <p className="section-copy">
+            If you need a reliable engineer to lead or support your next software initiative, I am available for freelance
+            collaborations across web, mobile, backend architecture, and product implementation.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div className="space-y-8">
+        <div className="mt-10 grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+          <aside className="space-y-6 border-r border-slate-800 pr-6">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
-              <p className="text-gray-400 mb-8 leading-relaxed">
-                Whether you're looking for a developer to build secure applications, 
-                a cybersecurity expert to assess your infrastructure, or someone who can bridge 
-                both worlds - I'm here to help.
+              <h3 className="text-lg font-bold text-slate-100">Project Fit</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-400">
+                Ideal for startups, product teams, and businesses that need hands-on support in designing, building,
+                modernizing, or scaling software systems.
               </p>
             </div>
 
-            <div className="space-y-6">
-<div className="flex items-center space-x-4">
-                <div className="p-3 bg-cyan-500/10 rounded-full border border-cyan-500/20">
-                  <PhoneCall className="h-6 w-6 text-cyan-400" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-white">Phone</h4>
-                  <p className="text-gray-400">+971 503092584 , +91 9899880626</p>
-          
-                </div>
+            <div className="space-y-4 text-sm">
+              <div className="flex items-center gap-3 text-slate-300">
+                <PhoneCall className="h-4 w-4 text-amber-300" />
+                <span>+971 503092584 | +91 9899880626</span>
               </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="p-3 bg-cyan-500/10 rounded-full border border-cyan-500/20">
-                  <Mail className="h-6 w-6 text-cyan-400" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-white">Email</h4>
-                  <p className="text-gray-400">ahmadaug20@gmail.com</p>
-                </div>
+              <div className="flex items-center gap-3 text-slate-300">
+                <Mail className="h-4 w-4 text-amber-300" />
+                <span>ahmadaug20@gmail.com</span>
               </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="p-3 bg-blue-500/10 rounded-full border border-blue-500/20">
-                  <Github className="h-6 w-6 text-blue-400" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-white">GitHub</h4>
-                  <p className="text-gray-400">https://github.com/No0b-master</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="p-3 bg-purple-500/10 rounded-full border border-purple-500/20">
-                  <Linkedin className="h-6 w-6 text-purple-400" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-white">LinkedIn</h4>
-                  <p className="text-gray-400">https://www.linkedin.com/in/ahmad-mohd/</p>
-                </div>
-              </div>
+              <a
+                href="https://github.com/No0b-master"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-slate-300 hover:text-amber-300"
+              >
+                <Github className="h-4 w-4 text-amber-300" />
+                <span>github.com/No0b-master</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ahmad-mohd/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-slate-300 hover:text-amber-300"
+              >
+                <Linkedin className="h-4 w-4 text-amber-300" />
+                <span>linkedin.com/in/ahmad-mohd</span>
+              </a>
+              <a
+                href="https://x.com/N00b_Master88"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-slate-300 hover:text-amber-300"
+              >
+                <Twitter className="h-4 w-4 text-amber-300" />
+                <span>x.com/N00b_Master88</span>
+              </a>
             </div>
 
-            <div className="pt-8">
-              <h4 className="text-lg font-semibold text-white mb-4">Areas of Expertise</h4>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  'Mobile + Web App Developement',
-                  'Web Application Security',
-                  'Secure API Development',
-                  'Penetration Testing',
-                  'DevSecOps Implementation',
-                  'Security Architecture',
-                  'Incident Response'
-                ].map((expertise) => (
-                  <div key={expertise} className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
-                    <span className="text-gray-300 text-sm">{expertise}</span>
-                  </div>
-                ))}
-              </div>
+            <div>
+              <h4 className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-300">Common Engagements</h4>
+              <ul className="mt-3 space-y-2 text-sm text-slate-400">
+                <li className="grid grid-cols-[10px_1fr] gap-2">
+                  <span className="text-amber-300">-</span>
+                  <span>End-to-end web and mobile product development</span>
+                </li>
+                <li className="grid grid-cols-[10px_1fr] gap-2">
+                  <span className="text-amber-300">-</span>
+                  <span>Backend architecture and API modernization</span>
+                </li>
+                <li className="grid grid-cols-[10px_1fr] gap-2">
+                  <span className="text-amber-300">-</span>
+                  <span>UI/UX implementation with production-ready frontend code</span>
+                </li>
+                <li className="grid grid-cols-[10px_1fr] gap-2">
+                  <span className="text-amber-300">-</span>
+                  <span>Technical support, updates, and platform improvements</span>
+                </li>
+              </ul>
             </div>
-          </div>
+          </aside>
 
-          {/* Contact Form */}
-          <div className="bg-gradient-to-br from-slate-900/80 to-slate-800/80 rounded-2xl p-8 border border-slate-700/50">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+          <div className="border border-slate-800 p-6 md:p-8">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid gap-5 md:grid-cols-2">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="name" className="mb-2 block text-sm font-medium text-slate-300">
                     Name
                   </label>
                   <input
@@ -134,12 +127,12 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors duration-300"
-                    placeholder="Your Name"
+                    className="w-full rounded-lg border border-slate-600 bg-slate-900/80 px-4 py-3 text-slate-100 placeholder-slate-500 focus:border-amber-300 focus:outline-none"
+                    placeholder="Your full name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="email" className="mb-2 block text-sm font-medium text-slate-300">
                     Email
                   </label>
                   <input
@@ -149,14 +142,14 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors duration-300"
-                    placeholder="your.email@example.com"
+                    className="w-full rounded-lg border border-slate-600 bg-slate-900/80 px-4 py-3 text-slate-100 placeholder-slate-500 focus:border-amber-300 focus:outline-none"
+                    placeholder="you@company.com"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="subject" className="mb-2 block text-sm font-medium text-slate-300">
                   Subject
                 </label>
                 <select
@@ -165,20 +158,20 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors duration-300"
+                  className="w-full rounded-lg border border-slate-600 bg-slate-900/80 px-4 py-3 text-slate-100 focus:border-amber-300 focus:outline-none"
                 >
-                  <option value="">Select a subject</option>
+                  <option value="">Select project type</option>
                   <option value="development">Web Development Project</option>
-                  <option value="security">Security Consultation</option>
-                  <option value="devsecops">DevSecOps Implementation</option>
-                  <option value="collaboration">Collaboration Opportunity</option>
+                  <option value="mobile">Mobile App Development</option>
+                  <option value="backend">Backend Architecture and APIs</option>
+                  <option value="consultation">Technical Consultation</option>
                   <option value="other">Other</option>
                 </select>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                  Message
+                <label htmlFor="message" className="mb-2 block text-sm font-medium text-slate-300">
+                  Project Details
                 </label>
                 <textarea
                   id="message"
@@ -186,17 +179,17 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={5}
-                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-600/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors duration-300"
-                  placeholder="Tell me about your project or how I can help..."
+                  rows={6}
+                  className="w-full rounded-lg border border-slate-600 bg-slate-900/80 px-4 py-3 text-slate-100 placeholder-slate-500 focus:border-amber-300 focus:outline-none"
+                  placeholder="Share your goals, timeline, and current challenges."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg font-semibold text-white hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25"
+                className="w-full rounded-lg bg-amber-400 px-5 py-3 text-sm font-bold text-slate-900 hover:bg-amber-300"
               >
-                Send Message
+                Send Inquiry
               </button>
             </form>
           </div>

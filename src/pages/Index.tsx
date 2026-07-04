@@ -9,13 +9,15 @@ import Navigation from '../components/Navigation';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+    <div className="min-h-screen bg-slate-950 text-slate-100">
       <Navigation />
-      <Hero />
-      <Skills />
-      <Projects />
-      <BlogPreview />
-      <Contact />
+      <main>
+        <Hero />
+        <Skills />
+        <Projects />
+        <BlogPreview />
+        <Contact />
+      </main>
     </div>
   );
 };
